@@ -8,11 +8,11 @@ def hello_name(name):
  
 @app.route('/')
 def hello_world():
-    return 'Hello World'
+    return 'Hello World Szakalaka strona testowa!'
  
 @app.route('/new-feature')
 def new_feature():
-    return "This is a new feature!"
+    return "This is a new feature in project!"
 
 
 if __name__ == '__main__':
