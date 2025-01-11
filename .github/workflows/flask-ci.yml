@@ -1,10 +1,10 @@
 name: Flask CI Pipeline
 
 on:
-  push:
+  pull_request:
     branches:
       - main
-  pull_request:
+  push:
     branches:
       - main
 
@@ -13,28 +13,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Pobierz kod źródłowy z repozytorium
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # 2. Ustaw odpowiednią wersję Pythona
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.10'  # Możesz zmienić na 3.11, jeśli chcesz
+        python-version: 3.10
 
-    # 3. Zainstaluj zależności z requirements.txt
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    # 4. (Opcjonalnie) Uruchom testy aplikacji, jeśli są zdefiniowane
-    - name: Run tests
-      run: |
-        echo "No tests defined yet!" # Zmień na np. pytest, jeśli dodasz testy
-
-    # 5. Zbuduj obraz Dockera
     - name: Build Docker image
       run: |
         docker build -t flask-hello-world .
+
+    - name: Test
+      run: echo "Test"
+
