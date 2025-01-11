@@ -12,7 +12,7 @@ def hello_world():
  
 @app.route('/new-feature')
 def new_feature():
-    return "This is a new feature in project!"
+    return "This is a new feature in project by Damian!"
 
 
 if __name__ == '__main__':
