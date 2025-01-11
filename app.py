@@ -10,5 +10,10 @@ def hello_name(name):
 def hello_world():
     return 'Hello World'
  
+@app.route('/new-feature')
+def new_feature():
+    return "This is a new feature!"
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
